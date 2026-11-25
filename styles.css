@@ -1,0 +1,120 @@
+/* Variables para el CSS propio (el HTML usa la paleta del tema Tailwind) */
+:root {
+  --horno-950: #0e1610;
+  --horno-900: #16231a;
+  --tomate-300: #f29a82;
+  --tomate-400: #e4563b;
+  --tomate-600: #b23a24;
+  --albahaca-500: #4f8f3b;
+  --albahaca-700: #2f5e22;
+  --crema-300: #e6d4b3;
+  --oliva-700: #6b5d1c;
+}
+
+/* Hero: boca del horno de leña con arco de ladrillos, fuego que parpadea y chispas que suben */
+.hero {
+  background-image: radial-gradient(ellipse 60% 70% at 80% 100%, rgb(228 86 59 / 0.25), transparent 70%);
+}
+.hero-horno {
+  position: absolute;
+  right: clamp(-6rem, 2vw, 4rem);
+  bottom: 0;
+  width: clamp(20rem, 40vw, 34rem);
+  aspect-ratio: 1 / 0.9;
+  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+  /* ladrillos del arco: dovelas radiales con junta oscura */
+  background: repeating-conic-gradient(from -90deg at 50% 100%, #7a3524 0 6deg, #2a120b 6deg 6.8deg);
+  pointer-events: none;
+}
+.hero-horno::before {
+  content: "";
+  position: absolute;
+  inset: 20% 17% 0 17%;
+  border-radius: inherit;
+  background: radial-gradient(ellipse 70% 60% at 50% 100%, #ffe39a, #ffa14a 25%, var(--tomate-400) 45%, #5a1408 75%, #120806);
+  transform-origin: 50% 100%;
+  animation: fuego 1.8s ease-in-out infinite alternate;
+}
+.hero-horno::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 55%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffc27a;
+  box-shadow:
+    -40px 10px 0 #ffb066, 30px -20px 0 1px #ff8a4c, -90px -60px 0 #ffd28a,
+    70px -90px 0 #ff9a5a, -20px -130px 0 1px #ffc27a, 110px -40px 0 #ffb066,
+    -130px -150px 0 #ff8a4c, 50px -190px 0 #ffd28a, -60px -230px 0 1px #ff9a5a;
+  animation: chispas 5s linear infinite;
+}
+@keyframes fuego {
+  from { filter: brightness(0.85); transform: scaleY(0.97); }
+  to   { filter: brightness(1.15); transform: scaleY(1.03); }
+}
+@keyframes chispas {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-260px); opacity: 0; }
+}
+@media (max-width: 767px) {
+  .hero-horno { opacity: 0.4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-horno::before, .hero-horno::after { animation: none; }
+}
+
+/* Pestañas de la carta */
+.tab {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--crema-300);
+  border-radius: 9999px;
+  background: #fff;
+  color: var(--horno-900);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.tab:hover { border-color: var(--tomate-400); }
+.tab[aria-selected="true"] {
+  background: var(--horno-900);
+  border-color: var(--horno-900);
+  color: var(--tomate-300);
+}
+
+/* Tarjetas de platos */
+.plato {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem;
+  background: #fff;
+  border: 1px solid var(--crema-300);
+  border-top: 3px solid var(--tomate-400);
+  border-radius: 0.875rem;
+}
+.plato[data-cat="bianche"] { border-top-color: var(--albahaca-500); }
+.plato[data-cat="antipasti"] { border-top-color: var(--oliva-700); }
+
+/* Formulario */
+.campo {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background: #fdf8ef;
+  border: 1px solid var(--crema-300);
+  border-radius: 0.375rem;
+}
+.campo:focus-visible { outline: 2px solid var(--tomate-400); outline-offset: 1px; }
+.campo[aria-invalid="true"] { border-color: var(--tomate-400); }
+.error { min-height: 1.1rem; margin-top: 0.25rem; font-size: 0.75rem; color: var(--tomate-600); }
+#resultado.ok { background: #e4f0df; color: var(--albahaca-700); }
+#resultado.ko { background: #fbe3dc; color: var(--tomate-600); }
+
+/* Foco visible y movimiento reducido */
+a:focus-visible, button:focus-visible { outline: 2px solid var(--tomate-400); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  * { transition: none !important; }
+}
+

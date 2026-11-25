@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vesuvio | Pizzería Napolitana en Madrid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Tema Tailwind: paleta y tipografías propias (colores como utilidades: bg-horno-900, text-tomate-400...) -->
+    <style type="text/tailwindcss">
+    @theme {
+        --color-horno-950: #0e1610;
+        --color-horno-900: #16231a;
+        --color-horno-800: #203326;
+        --color-horno-700: #2c4433;
+        --color-tomate-200: #f8d2c6;
+        --color-tomate-300: #f29a82;
+        --color-tomate-400: #e4563b;
+        --color-tomate-600: #b23a24;
+        --color-albahaca-200: #d3e8cb;
+        --color-albahaca-300: #a9d39a;
+        --color-albahaca-500: #4f8f3b;
+        --color-albahaca-700: #2f5e22;
+        --color-crema-50: #fdf8ef;
+        --color-crema-100: #f6ecd9;
+        --color-crema-300: #e6d4b3;
+        --color-oliva-700: #6b5d1c;
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-sans: "DM Sans", system-ui, sans-serif;
+    }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-crema-50 text-horno-900 antialiased font-sans">
+    <!-- Navegación -->
+    <header class="sticky top-0 z-30 bg-horno-950/95 backdrop-blur border-b border-tomate-400/20">
+    <nav class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
+        <a href="#" class="font-display font-extrabold text-2xl text-crema-50 tracking-wide">
+        Vesuvio
+        </a>
+        <div class="hidden md:flex gap-9 text-sm text-crema-100/75">
+        <a href="#masa" class="hover:text-tomate-300 transition">La Masa</a>
+        <a href="#nonna" class="hover:text-tomate-300 transition">Menú Nonna</a>
+        <a href="#carta" class="hover:text-tomate-300 transition">La Carta</a>
+        <a href="#reservas" class="hover:text-tomate-300 transition">Reservas</a>
+        </div>
+        <div class="flex items-center gap-2">
+        <a href="#reservas" class="bg-tomate-400 hover:bg-tomate-300 text-horno-950 text-sm font-semibold px-4 py-2 rounded-md transition">
+            Reservar mesa
+        </a>
+        <button id="menu-btn" class="md:hidden p-2 rounded-md border border-tomate-400/40 text-tomate-300" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" /></svg>
+        </button>
+        </div>
+    </nav>
+    <div id="menu-movil" class="hidden md:hidden flex-col gap-3 border-t border-tomate-400/20 bg-horno-950 px-4 py-4 text-sm text-crema-100">
+        <a href="#masa" class="py-1">La Masa</a>
+        <a href="#nonna" class="py-1">Menú Nonna</a>
+        <a href="#carta" class="py-1">La Carta</a>
+        <a href="#reservas" class="py-1">Reservas</a>
+    </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero relative overflow-hidden bg-horno-950 text-crema-50">
+    <div class="hero-horno" aria-hidden="true"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 pt-24 pb-20 md:pt-36 md:pb-28">
+        <p class="inline-block border border-tomate-400/50 text-tomate-300 text-xs font-medium px-3.5 py-1.5 rounded-full mb-6">
+        Horno de leña · Harina tipo 00 de Nápoles
+        </p>
+        <h1 class="font-display text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] max-w-3xl mb-6">
+        Masa lenta, fuego vivo, pizza de verdad.
+        </h1>
+        <p class="text-lg md:text-xl text-crema-100/80 max-w-xl mb-10">
+        Masa que fermenta 48 horas, tomate San Marzano y mozzarella fresca, horneada en 90 segundos frente a ti.
+        </p>
+        <div class="flex flex-wrap gap-3">
+        <a href="#reservas" class="bg-tomate-400 hover:bg-tomate-300 text-horno-950 font-semibold px-7 py-3.5 rounded-lg transition">
+            Reservar ahora
+        </a>
+        <a href="#carta" class="border border-tomate-300/60 hover:bg-tomate-300/10 text-tomate-200 font-medium px-7 py-3.5 rounded-lg transition">
+            Ver carta
+        </a>
+        </div>
+    </div>
+
+    <div class="relative border-t border-tomate-400/20 bg-horno-900/60">
+        <div class="max-w-6xl mx-auto px-4 py-4 grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm text-crema-100/75">
+        <p>Martes a domingo, 13:00 a 23:30</p>
+        <p class="sm:text-center">Calle del Olivo 14, Madrid</p>
+        <p class="sm:text-right">Horno de leña a la vista</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- La Masa -->
+    <section id="masa" class="py-20 px-4 bg-crema-50">
+    <div class="max-w-6xl mx-auto">
+        <div class="max-w-2xl mb-14">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Del horno a tu mesa</h2>
+        <p class="text-horno-800/75 text-lg">
+            Amasamos cada mañana y dejamos que el tiempo haga su trabajo. Los ingredientes llegan de Italia y de huertas cercanas.
+        </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="rounded-2xl bg-white border border-crema-300 p-8">
+            <span class="font-display text-5xl text-tomate-400" aria-hidden="true">48h</span>
+            <h3 class="font-display text-xl font-bold mt-4 mb-2">Masa madurada</h3>
+            <p class="text-horno-800/75 text-sm leading-relaxed">
+            Dos días de fermentación lenta para una masa ligera, aireada y fácil de digerir, con el borde bien alveolado.
+            </p>
+        </article>
+        <article class="rounded-2xl bg-horno-900 text-crema-50 p-8">
+            <span class="font-display text-5xl text-tomate-400" aria-hidden="true">485°</span>
+            <h3 class="font-display text-xl font-bold mt-4 mb-2">Horno de leña</h3>
+            <p class="text-crema-100/75 text-sm leading-relaxed">
+            A casi 500 grados la pizza se hace en noventa segundos: base crujiente, centro tierno y el toque ahumado de la leña.
+            </p>
+        </article>
+        <article class="rounded-2xl bg-white border border-crema-300 p-8">
+            <span class="font-display text-5xl text-albahaca-500" aria-hidden="true">DOP</span>
+            <h3 class="font-display text-xl font-bold mt-4 mb-2">Ingredientes de origen</h3>
+            <p class="text-horno-800/75 text-sm leading-relaxed">
+            Tomate San Marzano, mozzarella de búfala de Campania y aceite de oliva virgen extra, sin atajos.
+            </p>
+        </article>
+        </div>
+
+        <ul class="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-sm text-horno-800/75">
+        <li>✓ Masa sin gluten bajo pedido</li>
+        <li>✓ Vinos italianos, limoncello y cervezas artesanas</li>
+        <li>✓ Opciones vegetarianas y veganas</li>
+        </ul>
+    </div>
+    </section>
+
+    <!-- Menú Nonna -->
+    <section id="nonna" class="py-20 px-4 bg-horno-900 text-crema-50">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Menú de la Nonna, como en casa</h2>
+        <p class="text-crema-100/75 text-lg mb-6 max-w-md">
+            Un antipasto para compartir, la pizza que prefieras de la carta y el postre de la casa. La mejor forma de conocernos.
+        </p>
+        <ul class="space-y-3 text-crema-100/85">
+            <li class="flex gap-3"><span class="text-tomate-400">✓</span> Burrata con tomate y albahaca</li>
+            <li class="flex gap-3"><span class="text-tomate-400">✓</span> Una pizza a elegir de la carta</li>
+            <li class="flex gap-3"><span class="text-tomate-400">✓</span> Tiramisú casero de la nonna</li>
+        </ul>
+        </div>
+
+        <div class="relative rounded-3xl border border-tomate-400/50 bg-horno-800/60 p-10 text-center">
+        <p class="font-display text-2xl text-tomate-300 font-bold mb-2">Menú Nonna</p>
+        <p class="text-crema-100/70 mb-6">Por persona, bebida aparte</p>
+        <p class="font-display text-6xl font-extrabold text-crema-50 mb-8">24 €</p>
+        <a href="#reservas" class="inline-block bg-albahaca-300 hover:bg-albahaca-200 text-horno-950 font-semibold px-7 py-3 rounded-lg transition">
+            Reservar mesa
+        </a>
+        </div>
+    </div>
+    </section>
+
+    <!-- La Carta -->
+    <section id="carta" class="py-20 px-4 bg-crema-100">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-3">La carta</h2>
+        <p class="text-center text-horno-800/75 mb-9">Las más pedidas esta temporada</p>
+
+        <div class="flex flex-wrap justify-center gap-2 mb-12" role="tablist" aria-label="Categorías de la carta" id="tabs">
+        <button role="tab" data-cat="todo" aria-selected="true" class="tab">Todo</button>
+        <button role="tab" data-cat="rosse" aria-selected="false" class="tab">Pizzas rosse</button>
+        <button role="tab" data-cat="bianche" aria-selected="false" class="tab">Pizzas bianche</button>
+        <button role="tab" data-cat="antipasti" aria-selected="false" class="tab">Antipasti</button>
+        </div>
+
+        <div id="carta-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </div>
+    </section>
+
+    <!-- Opiniones -->
+    <section class="py-20 px-4 bg-horno-950 text-crema-50">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-12 max-w-xl">Lo que dicen quienes ya han probado nuestras pizzas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <figure class="rounded-2xl border border-tomate-400/30 bg-horno-900 p-7">
+            <blockquote class="text-crema-100/90 leading-relaxed mb-5">La mejor margherita que he probado fuera de Nápoles. El borde es pura nube.</blockquote>
+            <figcaption class="text-sm text-tomate-300">Marta R.</figcaption>
+        </figure>
+        <figure class="rounded-2xl border border-albahaca-300/30 bg-horno-900 p-7">
+            <blockquote class="text-crema-100/90 leading-relaxed mb-5">Pedimos el menú Nonna y el tiramisú merece el viaje por sí solo.</blockquote>
+            <figcaption class="text-sm text-albahaca-300">Daniel P.</figcaption>
+        </figure>
+        <figure class="rounded-2xl border border-tomate-400/30 bg-horno-900 p-7">
+            <blockquote class="text-crema-100/90 leading-relaxed mb-5">Ambiente familiar, olor a leña y un trato muy cercano. Volveremos pronto.</blockquote>
+            <figcaption class="text-sm text-tomate-300">Lucía y Andrés</figcaption>
+        </figure>
+        </div>
+    </div>
+    </section>
+
+    <!-- Reservas -->
+    <section id="reservas" class="py-20 px-4 bg-crema-50">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Reserva tu mesa</h2>
+        <p class="text-horno-800/75 text-lg mb-8 max-w-md">
+            Elige día, hora y número de comensales. Te confirmamos al instante.
+        </p>
+        <dl class="space-y-5 text-sm">
+            <div class="border-l-2 border-tomate-400 pl-4">
+            <dt class="font-semibold">Horario</dt>
+            <dd class="text-horno-800/75">Martes a domingo, de 13:00 a 23:30. Cerrado los lunes.</dd>
+            </div>
+            <div class="border-l-2 border-albahaca-500 pl-4">
+            <dt class="font-semibold">Dirección</dt>
+            <dd class="text-horno-800/75">Calle del Olivo 14, Madrid</dd>
+            </div>
+            <div class="border-l-2 border-oliva-700 pl-4">
+            <dt class="font-semibold">Grupos de más de 6 personas</dt>
+            <dd class="text-horno-800/75">Escríbenos y preparamos pizzas al centro para compartir.</dd>
+            </div>
+        </dl>
+        </div>
+
+        <form id="form-reserva" novalidate class="p-7 rounded-2xl bg-white border border-crema-300 shadow-sm space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+            <label for="fecha" class="block text-sm font-medium mb-1">Fecha</label>
+            <input type="date" id="fecha" required class="campo" />
+            <p class="error" data-error-for="fecha"></p>
+            </div>
+            <div>
+            <label for="comensales" class="block text-sm font-medium mb-1">Comensales</label>
+            <select id="comensales" class="campo">
+                <option value="2">2 personas</option>
+                <option value="4">4 personas</option>
+                <option value="6">6 personas</option>
+            </select>
+            </div>
+        </div>
+        <div>
+            <label for="hora" class="block text-sm font-medium mb-1">Hora</label>
+            <select id="hora" class="campo"></select>
+        </div>
+        <div>
+            <label for="nombre" class="block text-sm font-medium mb-1">Nombre completo</label>
+            <input type="text" id="nombre" placeholder="Ej. Laura Gómez" required class="campo" />
+            <p class="error" data-error-for="nombre"></p>
+        </div>
+        <button type="submit" class="w-full bg-horno-900 hover:bg-horno-800 text-tomate-300 font-semibold py-3 rounded-md transition">
+            Confirmar reserva
+        </button>
+        <p id="resultado" class="hidden text-sm rounded-md px-3 py-2" role="status"></p>
+        </form>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-horno-950 text-crema-100/70 text-sm">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+        <a href="#" class="font-display font-extrabold text-xl text-crema-50">Vesuvio</a>
+        <p>Calle del Olivo 14, Madrid · © 2026 Vesuvio Pizzería</p>
+    </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
